@@ -1,0 +1,29 @@
+@import '../../../assets/constants/constants.scss';
+
+.sidebar-wrapper {
+  height: 100vh;
+  width: 300px;
+  background-color: $backColor;
+  padding: 10px;
+}
+
+.nav-item {
+  height: 50px;
+  background-color:  $blueColor;
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  padding-left: 35px;
+}
+
+.nav-item:hover {
+  background-color: $background-container_dark;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
