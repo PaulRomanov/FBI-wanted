@@ -8,16 +8,16 @@ import { FormGroup } from '@angular/forms';
 })
 export class ModalWindowLoginFormComponent implements OnInit {
 
-  form!: FormGroup
+  public form!: FormGroup
 
 
-  @Output() modal: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() public modal: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.form = new FormGroup({})
   }
 
-  submit() {
+  submit(): void {
     console.log('Form submitted: ', this.form)
   }
 

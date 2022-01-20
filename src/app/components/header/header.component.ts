@@ -7,7 +7,7 @@ import { Component, OnInit} from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   public userName = '';
-  showModal: boolean = false;
+  public showModal: boolean = false;
 
 
   constructor() { }
@@ -17,11 +17,9 @@ export class HeaderComponent implements OnInit {
 
   openModal(): void {
     this.showModal = true;
-    console.log('showModal = true');
-
   }
 
-    // closeModal(newName: string) {
+    // closeModal(newName: string): void {
     //     this.showModal = false;
     //     if (newName) this.name = newName;
     // }
