@@ -1,7 +1,7 @@
 <div class="wrapper-main-page">
+  <div class="btn btn1" (click)="openModal()"><a>LogIn</a></div>
   <div class="wrapper-content-main-page">
     <img src="../../../assets/fbi-back4.jpg" alt="logo" />
   </div>
-
-  <div class="btn btn1"><a>LogIn</a></div>
 </div>
+<app-modal-window-login-form *ngIf="authService.isShowModal"></app-modal-window-login-form>
