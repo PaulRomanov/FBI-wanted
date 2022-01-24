@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { ModalWindowLoginFormModule } from '../modal-window-login-form/modal-window-login-form.module';
 
-import { HeaderComponent } from './header.component';
+import { AuthService } from 'src/app/services/auth.service';
 
+import { HeaderComponent } from './header.component';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { HeaderComponent } from './header.component';
     ModalWindowLoginFormModule
   ],
   declarations: [HeaderComponent],
-  exports: [HeaderComponent]
+  exports: [HeaderComponent],
+  providers: [AuthService]
 })
 export class HeaderModule { }

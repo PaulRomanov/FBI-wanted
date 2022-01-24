@@ -7,5 +7,5 @@
     <button mat-raised-button (click)="openModal()">LogIn</button>
   </div>
 </div>
-<!--
-<app-modal-window-login-form ></app-modal-window-login-form> -->
+
+<app-modal-window-login-form *ngIf="authService.isShowModal"></app-modal-window-login-form>
