@@ -5,9 +5,11 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
 import { SettingsPageComponent } from './pages/settings-page/settings-page.component';
 
 const routes: Routes = [
-  { path: '', component: MainPageComponent },
+  { path: 'main', component: MainPageComponent },
   { path: 'content', component: ContentPageComponent },
-  { path: 'settings', component: SettingsPageComponent }
+  { path: 'settings', component: SettingsPageComponent },
+  { path: '', component: MainPageComponent },
+  { path: '**', component: MainPageComponent }
 ];
 
 @NgModule({
