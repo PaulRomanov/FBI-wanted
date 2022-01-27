@@ -42,25 +42,19 @@ export class ModalWindowLoginFormComponent implements OnInit, OnDestroy {
   public submit(): void {
     this.form.disable()
 
-    console.log(this.form.value);
-
-
     const user: User = {
       email: this.form.value.email,
       password: this.form.value.password,
       role: this.form.value.role,
     }
 
-    // this.aSub = this.authService.login(user).subscribe(
     this.aSub = this.authService.login(this.form.value.email, this.form.value.password).subscribe(
-      // data => console.log('success', data),
       () => {
         this.router.navigate([''])
         this.modalWindowService.isShowModal = false;
       },
 
       error => {
-        console.log('ErrOr')
         console.warn(error)
         this.form.enable()
       }
@@ -68,7 +62,7 @@ export class ModalWindowLoginFormComponent implements OnInit, OnDestroy {
 
   }
 
-  public cancel(): void {
+  public closeModal(): void {
     this.modalWindowService.isShowModal = false;
   }
 

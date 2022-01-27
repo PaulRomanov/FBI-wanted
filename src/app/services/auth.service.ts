@@ -31,7 +31,6 @@ export class AuthService {
               localStorage.setItem('email', usersElement.email)
 
             } else {
-              console.log('LOGIN FALSE');
               localStorage.clear();
             }
             return userObj;
