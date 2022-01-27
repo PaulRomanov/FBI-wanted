@@ -6,6 +6,11 @@
   <div class="button-login">
     <button mat-raised-button (click)="openModal()">LogIn</button>
   </div>
+  <div class="button-logout hidden-btn">
+    <button mat-raised-button (click)="closeModal()">LogOut</button>
+  </div>
+
+
 </div>
 
-<app-modal-window-login-form *ngIf="authService.isShowModal"></app-modal-window-login-form>
+<app-modal-window-login-form *ngIf="modalWindowService.isShowModal"></app-modal-window-login-form>

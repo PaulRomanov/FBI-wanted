@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { AuthService } from './../../services/auth.service';
+import { ModalWindowService } from 'src/app/services/modal-window.service';
+
 
 @Component({
   selector: 'app-header',
@@ -10,13 +11,13 @@ import { AuthService } from './../../services/auth.service';
 })
 export class HeaderComponent {
 
-  public userName = '';
-  public isShowModal: boolean = false;
-
-  constructor(public authService: AuthService) { }
+  constructor(public modalWindowService: ModalWindowService) { }
 
   public openModal(): void {
-    this.authService.isShowModal = true;
+    this.modalWindowService.isShowModal = true;
   }
 
+  public closeModal(): void {
+    this.modalWindowService.isShowModal = false;
+  }
 }
