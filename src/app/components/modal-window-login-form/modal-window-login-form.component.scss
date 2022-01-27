@@ -1,4 +1,4 @@
-@import '../../../../assets/constants/constants.scss';
+@import '../../../assets/constants/constants.scss';
 
 .container {
   position: fixed;
@@ -29,7 +29,6 @@
     }
 
     .content_container {
-      overflow-y: scroll;
       max-height: 90vh;
     }
   }
@@ -44,7 +43,14 @@
 
   .form-control{
     width: 300px;
+    display: flex;
+    justify-content: flex-end;
   }
+
+  .validation {
+    color: red;
+  }
+
   .google-btn {
     color: black;
     width: 220px;
@@ -65,6 +71,11 @@
   }
 }
 
-[hidden] {
-  display: none !important;
+input {
+  &.ng-invalid.ng-touched {
+    border: 1px solid red;
+  }
+  &.ng-valid.ng-touched {
+    border: 1px solid green;
+  }
 }
