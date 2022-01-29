@@ -33,13 +33,7 @@ export class ModalWindowLoginFormComponent implements OnInit, OnDestroy {
     })
   }
 
-  ngOnDestroy(): void {
-    if (this.aSub) {
-      this.aSub.unsubscribe()
-    }
-  }
-
-  public submit(): void {
+  public login(): void {
     this.form.disable()
 
     const user: User = {
@@ -51,7 +45,7 @@ export class ModalWindowLoginFormComponent implements OnInit, OnDestroy {
     this.aSub = this.authService.login(this.form.value.email, this.form.value.password).subscribe(
       () => {
         this.router.navigate([''])
-        this.modalWindowService.isShowModal = false;
+        this.modalWindowService.isShowModal$.next(false)
       },
 
       error => {
@@ -63,7 +57,13 @@ export class ModalWindowLoginFormComponent implements OnInit, OnDestroy {
   }
 
   public closeModal(): void {
-    this.modalWindowService.isShowModal = false;
+    this.modalWindowService.isShowModal$.next(false)
+  }
+
+  ngOnDestroy(): void {
+    if (this.aSub) {
+      this.aSub.unsubscribe()
+    }
   }
 
 }

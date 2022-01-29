@@ -31,7 +31,7 @@ export class AuthService {
               localStorage.setItem('email', usersElement.email)
 
             } else {
-              localStorage.clear();
+
             }
             return userObj;
           })

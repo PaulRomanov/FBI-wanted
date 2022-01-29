@@ -1,7 +1,7 @@
 <div class="container">
   <div class="modal-window">
     <div class="content_container">
-      <form class="login-form" [formGroup]="form" (ngSubmit)="(submit)">
+      <form class="login-form" [formGroup]="form" (ngSubmit)="(login)">
         <div class="form-control">
           <label>Email</label>
           <input
@@ -58,10 +58,10 @@
           <button
             class="btn filled-btn"
             type="submit"
-            (click)="submit()"
+            (click)="login()"
             [disabled]="form.invalid || form.disabled"
           >
-            submit
+          login
           </button>
         </div>
       </form>

@@ -5,5 +5,5 @@ export interface User {
 }
 
 export interface Response {
-  users: Array<User>
+  users: User[]
  }

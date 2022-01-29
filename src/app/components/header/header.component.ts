@@ -10,14 +10,15 @@ import { ModalWindowService } from 'src/app/services/modal-window.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent {
+public isShowModal$ = this.modalWindowService.isShowModal$;
 
   constructor(public modalWindowService: ModalWindowService) { }
 
   public openModal(): void {
-    this.modalWindowService.isShowModal = true;
+    this.isShowModal$.next(true);
   }
 
   public closeModal(): void {
-    this.modalWindowService.isShowModal = false;
+    this.isShowModal$.next(false);
   }
 }
