@@ -13,4 +13,4 @@
 
 </div>
 
-<app-modal-window-login-form *ngIf="modalWindowService.isShowModal"></app-modal-window-login-form>
+<app-modal-window-login-form *ngIf="isShowModal$ | async"></app-modal-window-login-form>

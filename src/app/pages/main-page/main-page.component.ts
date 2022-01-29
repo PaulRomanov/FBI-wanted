@@ -13,11 +13,11 @@ export class MainPageComponent {
   constructor(public modalWindowService: ModalWindowService) { }
 
   public openModal(): void {
-    this.modalWindowService.isShowModal = true;
+    this.modalWindowService.isShowModal$.next(true);
   }
 
   public closeModal(): void {
-    this.modalWindowService.isShowModal = false;
+    this.modalWindowService.isShowModal$.next(false);
   }
 
 }
