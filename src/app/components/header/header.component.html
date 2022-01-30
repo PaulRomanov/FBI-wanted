@@ -4,7 +4,7 @@
   </div>
 
   <div class="button-login">
-    <button mat-raised-button (click)="openModal()">LogIn</button>
+    <button mat-raised-button  (click)="openModal()">{{changeTitle == true ? 'LogIn' : 'LogOut'}}</button>
   </div>
   <div class="button-logout hidden-btn">
     <button mat-raised-button (click)="closeModal()">LogOut</button>
