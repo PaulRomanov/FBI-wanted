@@ -54,7 +54,6 @@ export class ModalWindowLoginFormComponent implements OnInit, OnDestroy {
       error => {
         console.warn(error)
         this.form.enable()
-        this.appComponent.status = !this.appComponent.status;
       }
     )
 
