@@ -8,6 +8,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
+  public isAuthLogin: boolean = false;
   public login(email: User, password: User): Observable<Response> {
 
     let userObj = {
@@ -29,7 +30,7 @@ export class AuthService {
               userObj.password = usersElement.password
 
               localStorage.setItem('email', usersElement.email)
-
+              this.isAuthLogin = true;
             } else {
 
             }
