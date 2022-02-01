@@ -1,6 +1,6 @@
 <div class="wrapper-main-page">
-  <div class="btn btn1 btn-login" (click)="openModal()"><a>LogIn</a></div>
-  <div class="btn btn1 btn-logout hidden-btn" (click)="closeModal()"><a>LogOut</a></div>
+  <div class="btn btn1 btn-login" (click)="login()" *ngIf="!authService.userName"><a>LogIn</a></div>
+  <div class="btn btn1 btn-logout" (click)="logout()" *ngIf="authService.userName"><a>LogOut</a></div>
   <div class="wrapper-content-main-page">
     <img src="../../../assets/fbi-back4.jpg" alt="logo" />
   </div>

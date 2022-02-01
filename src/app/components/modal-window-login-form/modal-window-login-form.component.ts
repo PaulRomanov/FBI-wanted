@@ -52,7 +52,6 @@ export class ModalWindowLoginFormComponent implements OnInit, OnDestroy {
       () => {
         this.router.navigate([''])
         this.modalWindowService.closeModal()
-        this.btnChangeTitleService.changeTitle = true;
         this.appComponent.status = !this.appComponent.status;
 
       },
@@ -66,8 +65,7 @@ export class ModalWindowLoginFormComponent implements OnInit, OnDestroy {
   }
 
   public closeModal(): void {
-    this.modalWindowService.isShowModal$.next(false)
-    this.appComponent.status = !this.appComponent.status;
+    this.modalWindowService.closeModal();
   }
 
   ngOnDestroy(): void {

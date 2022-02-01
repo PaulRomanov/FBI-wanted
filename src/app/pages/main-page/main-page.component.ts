@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { ModalWindowService } from 'src/app/services/modal-window.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { AppComponent } from './../../app.component';
 
 @Component({
   selector: 'app-main-page',
@@ -10,14 +12,20 @@ import { ModalWindowService } from 'src/app/services/modal-window.service';
 })
 export class MainPageComponent {
 
-  constructor(public modalWindowService: ModalWindowService) { }
+  constructor(
+    public modalWindowService: ModalWindowService,
+    public authService: AuthService,
+    public appComponent: AppComponent
+  ) { }
 
-  public openModal(): void {
-    this.modalWindowService.isShowModal$.next(true);
+  public login(): void {
+    this.modalWindowService.openModal();
   }
 
-  public closeModal(): void {
-    this.modalWindowService.isShowModal$.next(false);
+  public logout(): void {
+    this.modalWindowService.closeModal();
+    this.authService.userName = '';
+    this.appComponent.status = !this.appComponent.status
   }
 
 }
