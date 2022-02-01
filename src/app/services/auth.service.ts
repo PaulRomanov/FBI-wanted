@@ -12,12 +12,12 @@ export class AuthService {
   public isAuthLogin: boolean = false;
   public login(email: User, password: User): Observable<Response> {
 
-    let userObj = {
+    const userObj = {
       email: '',
       password: ''
     }
 
-    let requestURL = '../../assets/users/users.json';
+    const requestURL = '../../assets/users/users.json';
 
     return this.http.get<Response>(requestURL).pipe(
 

@@ -1,8 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { BtnChangeTitleService } from 'src/app/services/btnChangeTitle.service';
 
 import { ModalWindowService } from 'src/app/services/modal-window.service';
-import { ModalWindowLoginFormComponent } from '../modal-window-login-form/modal-window-login-form.component';
 import { AuthService } from 'src/app/services/auth.service';
 
 
@@ -14,11 +12,9 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class HeaderComponent {
   public isShowModal$ = this.modalWindowService.isShowModal$;
-  public changeTitle = this.btnChangeTitleService.changeTitle;
 
   constructor(
     public modalWindowService: ModalWindowService,
-    public btnChangeTitleService: BtnChangeTitleService,
     public authService: AuthService
   ) { }
 
