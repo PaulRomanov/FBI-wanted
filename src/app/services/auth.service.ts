@@ -8,6 +8,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
+  public userName: string | null = '';
   public isAuthLogin: boolean = false;
   public login(email: User, password: User): Observable<Response> {
 
@@ -30,10 +31,56 @@ export class AuthService {
               userObj.password = usersElement.password
 
               localStorage.setItem('email', usersElement.email)
+
               this.isAuthLogin = true;
+
+              if (localStorage.getItem('email') === 'admin@gmail.com') {
+                this.userName = 'Admin'
+              } else if (localStorage.getItem('email') === 'user@gmail.com') {
+                this.userName = 'User'
+              } else if (localStorage.getItem('email') === 'guest@gmail.com') {
+                this.userName = 'Guest'
+              } else {
+                this.userName = localStorage.getItem('email')
+              }
+
+
             } else {
 
             }
+
+            // for (let i = 0; i < usersList.length; i++) {
+            //   if (usersList[i].email === usersElement.email && usersElement.password === password) {
+            //     userObj.email = usersElement.email
+            //     userObj.password = usersElement.password
+
+            //     console.log(usersList[i].email);
+            //     console.log('userObj.email', userObj.email);
+
+
+
+            //     localStorage.setItem('email', usersElement.email)
+            //     // console.log(localStorage.getItem('email'));
+
+            //     this.isAuthLogin = true;
+
+            //     if (localStorage.getItem('email') === 'admin@gmail.com') {
+            //       this.userName = 'Admin'
+            //     } else if (localStorage.getItem('email') === 'user@gmail.com') {
+            //       this.userName = 'User'
+            //     } else if (localStorage.getItem('email') === 'guest@gmail.com') {
+            //       this.userName = 'Guest'
+            //     } else {
+            //       this.userName = localStorage.getItem('email')
+            //     }
+
+
+            //   } else {
+
+            //   }
+            // }
+
+
             return userObj;
           })
         )
@@ -45,3 +92,5 @@ export class AuthService {
   }
 
 }
+
+
