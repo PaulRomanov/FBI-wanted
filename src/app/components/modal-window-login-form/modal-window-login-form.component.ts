@@ -5,8 +5,10 @@ import { Subscription } from 'rxjs';
 
 import { AuthService } from 'src/app/services/auth.service';
 import { ModalWindowService } from 'src/app/services/modal-window.service';
+import { BtnChangeTitleService } from './../../services/btnChangeTitle.service';
 import { User } from './../../interfaces/interfaces';
 import { AppComponent } from './../../app.component';
+
 
 @Component({
   selector: 'app-modal-window-login-form',
@@ -25,7 +27,9 @@ export class ModalWindowLoginFormComponent implements OnInit, OnDestroy {
     public router: Router,
     public route: ActivatedRoute,
     public modalWindowService: ModalWindowService,
+    public btnChangeTitleService: BtnChangeTitleService
     public appComponent: AppComponent
+
   ) { }
 
   ngOnInit(): void {
@@ -48,7 +52,9 @@ export class ModalWindowLoginFormComponent implements OnInit, OnDestroy {
       () => {
         this.router.navigate([''])
         this.modalWindowService.isShowModal$.next(false)
+        this.btnChangeTitleService.changeTitle = true;
         this.appComponent.status = !this.appComponent.status;
+
       },
 
       error => {
