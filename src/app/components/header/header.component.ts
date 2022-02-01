@@ -1,9 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { BtnChangeTitleService } from 'src/app/services/btnChangeTitle.service';
 
 import { ModalWindowService } from 'src/app/services/modal-window.service';
-import { ModalWindowLoginFormComponent } from '../modal-window-login-form/modal-window-login-form.component';
 import { AuthService } from 'src/app/services/auth.service';
+import { AppComponent } from 'src/app/app.component';
 
 
 @Component({
@@ -13,20 +12,21 @@ import { AuthService } from 'src/app/services/auth.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent {
-  public isShowModal$ = this.modalWindowService.isShowModal$;
-  public changeTitle = this.btnChangeTitleService.changeTitle;
 
   constructor(
     public modalWindowService: ModalWindowService,
-    public btnChangeTitleService: BtnChangeTitleService,
-    public authService: AuthService
+    public authService: AuthService,
+    public appComponent: AppComponent
   ) { }
 
-  public openModal(): void {
-    this.isShowModal$.next(true);
+  public login(): void {
+    this.modalWindowService.openModal();
   }
 
-  public closeModal(): void {
-    this.isShowModal$.next(false);
+
+  public logout(): void {
+    this.modalWindowService.closeModal();
+    this.authService.userName = '';
+    this.appComponent.status = !this.appComponent.status
   }
 }

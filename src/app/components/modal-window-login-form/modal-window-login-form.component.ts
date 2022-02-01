@@ -27,7 +27,7 @@ export class ModalWindowLoginFormComponent implements OnInit, OnDestroy {
     public router: Router,
     public route: ActivatedRoute,
     public modalWindowService: ModalWindowService,
-    public btnChangeTitleService: BtnChangeTitleService
+    public btnChangeTitleService: BtnChangeTitleService,
     public appComponent: AppComponent
 
   ) { }
@@ -51,8 +51,7 @@ export class ModalWindowLoginFormComponent implements OnInit, OnDestroy {
     this.aSub = this.authService.login(this.form.value.email, this.form.value.password).subscribe(
       () => {
         this.router.navigate([''])
-        this.modalWindowService.isShowModal$.next(false)
-        this.btnChangeTitleService.changeTitle = true;
+        this.modalWindowService.closeModal()
         this.appComponent.status = !this.appComponent.status;
 
       },
@@ -66,8 +65,7 @@ export class ModalWindowLoginFormComponent implements OnInit, OnDestroy {
   }
 
   public closeModal(): void {
-    this.modalWindowService.isShowModal$.next(false)
-    this.appComponent.status = !this.appComponent.status;
+    this.modalWindowService.closeModal();
   }
 
   ngOnDestroy(): void {
