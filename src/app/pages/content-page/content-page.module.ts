@@ -2,13 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContentPageComponent } from './content-page.component';
 import { SidebarModule } from 'src/app/components/sidebar/sidebar.module';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
+const router: Routes = [
+  {path: '', component: ContentPageComponent}
+]
 @NgModule({
   imports: [
     CommonModule,
     SidebarModule,
-    RouterModule
+    RouterModule.forChild(router)
   ],
   declarations: [ContentPageComponent],
   exports: [ContentPageComponent]

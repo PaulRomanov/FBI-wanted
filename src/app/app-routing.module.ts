@@ -7,8 +7,8 @@ import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
   { path: 'main', component: MainPageComponent },
-  { path: 'content', component: ContentPageComponent, canActivate: [AuthGuard] },
-  { path: 'settings', component: SettingsPageComponent, canActivate: [AuthGuard] },
+  { path: 'content', loadChildren: () => import('./pages/content-page/content-page.module').then(x => x.ContentPageModule), canActivate: [AuthGuard] },
+  { path: 'settings', loadChildren: () => import('./pages/settings-page/settings-page.module').then(x => x.SettingsPageModule), canActivate: [AuthGuard] },
   { path: '', component: MainPageComponent },
   { path: '**', component: MainPageComponent }
 ];
