@@ -1,6 +1,8 @@
 <app-header></app-header>
 <div class="wrapper-page">
-  <app-sidebar [ngClass]="status ? 'hiden-sidebar' : 'show-sidebar'"></app-sidebar>
+  <app-sidebar
+    [ngClass]="isStatus ? 'hiden-sidebar' : 'show-sidebar'"
+  ></app-sidebar>
   <div class="wrapper-content">
     <router-outlet></router-outlet>
   </div>
@@ -8,3 +10,5 @@
 <app-modal-window-login-form
   *ngIf="isShowModal$ | async"
 ></app-modal-window-login-form>
+
+<app-spinner *ngIf="isSpinner"></app-spinner>
