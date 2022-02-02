@@ -8,8 +8,18 @@ import { ModalWindowService } from './services/modal-window.service';
 })
 export class AppComponent {
   title = 'FBI-wanted';
-  public status: boolean = true;
+  public isStatus: boolean = true;
   public isShowModal$ = this.modalWindowService.isShowModal$;
+  public isSpinner: boolean = true;
 
-  constructor(public modalWindowService: ModalWindowService){}
+  constructor(public modalWindowService: ModalWindowService) {
+
+    this.showSpinner()
+  }
+
+  public showSpinner(): void {
+    setTimeout(() => {
+      this.isSpinner = false;
+    }, 1000);
+  }
 }

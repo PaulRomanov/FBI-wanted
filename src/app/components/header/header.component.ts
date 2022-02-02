@@ -29,7 +29,7 @@ export class HeaderComponent {
   public logout(): void {
     this.modalWindowService.closeModal();
     this.authService.userName = '';
-    this.appComponent.status = !this.appComponent.status
+    this.appComponent.isStatus = !this.appComponent.isStatus
     localStorage.clear();
     this.router.navigate([''])
   }
