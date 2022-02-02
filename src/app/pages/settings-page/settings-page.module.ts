@@ -4,7 +4,7 @@ import { SettingsPageComponent } from './settings-page.component';
 import { SidebarModule } from 'src/app/components/sidebar/sidebar.module';
 import { RouterModule, Routes } from '@angular/router';
 
-const router: Routes = [
+const routes: Routes = [
   {path: '', component: SettingsPageComponent}
 ]
 
@@ -12,7 +12,7 @@ const router: Routes = [
   imports: [
     CommonModule,
     SidebarModule,
-    RouterModule.forChild(router)
+    RouterModule.forChild(routes)
   ],
   declarations: [SettingsPageComponent],
   exports: [SettingsPageComponent]
