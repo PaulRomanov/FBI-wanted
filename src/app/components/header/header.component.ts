@@ -1,29 +1,36 @@
-import { Component, OnInit} from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+
+import { ModalWindowService } from 'src/app/services/modal-window.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { AppComponent } from 'src/app/app.component';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HeaderComponent implements OnInit {
-  public userName = '';
-  showModal: boolean = false;
+export class HeaderComponent {
 
+  constructor(
+    public modalWindowService: ModalWindowService,
+    public authService: AuthService,
+    public appComponent: AppComponent,
+    private router: Router
+  ) { }
 
-  constructor() { }
-
-  ngOnInit() {
+  public login(): void {
+    this.modalWindowService.openModal();
   }
 
-  openModal(): void {
-    this.showModal = true;
-    console.log('showModal = true');
 
+  public logout(): void {
+    this.modalWindowService.closeModal();
+    this.authService.userName = '';
+    this.appComponent.status = !this.appComponent.status
+    localStorage.clear();
+    this.router.navigate([''])
   }
-
-    // closeModal(newName: string) {
-    //     this.showModal = false;
-    //     if (newName) this.name = newName;
-    // }
-
 }

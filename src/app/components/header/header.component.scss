@@ -8,10 +8,6 @@
   align-items: center;
 }
 
-.header-logo img{
-  width: 105px;
-}
-
 .button-login,
 .button-logout {
   button {
@@ -33,16 +29,29 @@
 
 .header-wrapper {
   display: flex;
-  justify-content:  space-between;
+  justify-content: space-between;
   align-items: center;
   height: $header-height;
   background-color: #acc2d4;
+
+  .header-logo img {
+    width: 105px;
+  }
 }
 
-.img {
-  margin-top: auto;
+.hidden-btn {
+  display: none;
+}
 
-  img {
-    height: 30px;
-  }
+.user-name {
+  display: flex;
+  align-items: center;
+  width: 350px;
+  height: 40px;
+}
+
+.wrapper-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
