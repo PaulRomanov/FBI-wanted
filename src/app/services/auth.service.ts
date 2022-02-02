@@ -8,14 +8,15 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
+  public userName: string | null = '';
+  public isAuthLogin: boolean = false;
+  public userObj = {
+    email: '',
+    password: ''
+  }
   public login(email: User, password: User): Observable<Response> {
 
-    let userObj = {
-      email: '',
-      password: ''
-    }
-
-    let requestURL = '../../assets/users/users.json';
+    const requestURL = '../../assets/users/users.json';
 
     return this.http.get<Response>(requestURL).pipe(
 
@@ -25,15 +26,16 @@ export class AuthService {
         usersList.find(
           ((usersElement: any) => {
             if (usersElement.email === email && usersElement.password === password) {
-              userObj.email = usersElement.email
-              userObj.password = usersElement.password
+              this.userObj.email = usersElement.email
+              this.userObj.password = usersElement.password
 
-              localStorage.setItem('email', usersElement.email)
+              localStorage.setItem('email', usersElement.email);
+              localStorage.setItem('role', usersElement.role)
 
-            } else {
-
+              this.isAuthLogin = true;
+              this.userName = localStorage.getItem('role');
             }
-            return userObj;
+            return this.userObj;
           })
         )
 
@@ -44,3 +46,5 @@ export class AuthService {
   }
 
 }
+
+

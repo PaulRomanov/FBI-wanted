@@ -2,15 +2,19 @@
   <div class="header-logo">
     <img src="../../../assets/FBI-Emblem.png" alt="logo" />
   </div>
+  <div class="wrapper-btn">
+    <div class="user-name">{{ "hello" }}, {{ authService.userName }}</div>
 
-  <div class="button-login">
-    <button mat-raised-button (click)="openModal()">LogIn</button>
+    <div class="button-login">
+      <button mat-raised-button (click)="login()" *ngIf="!authService.userName">
+        LogIn
+      </button>
+    </div>
+
+    <div class="button-logout">
+      <button mat-raised-button (click)="logout()" *ngIf="authService.userName">
+        LogOut
+      </button>
+    </div>
   </div>
-  <div class="button-logout hidden-btn">
-    <button mat-raised-button (click)="closeModal()">LogOut</button>
-  </div>
-
-
 </div>
-
-<app-modal-window-login-form *ngIf="isShowModal$ | async"></app-modal-window-login-form>

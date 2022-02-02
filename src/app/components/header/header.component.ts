@@ -1,6 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { ModalWindowService } from 'src/app/services/modal-window.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { AppComponent } from 'src/app/app.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,15 +13,24 @@ import { ModalWindowService } from 'src/app/services/modal-window.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent {
-public isShowModal$ = this.modalWindowService.isShowModal$;
 
-  constructor(public modalWindowService: ModalWindowService) { }
+  constructor(
+    public modalWindowService: ModalWindowService,
+    public authService: AuthService,
+    public appComponent: AppComponent,
+    private router: Router
+  ) { }
 
-  public openModal(): void {
-    this.isShowModal$.next(true);
+  public login(): void {
+    this.modalWindowService.openModal();
   }
 
-  public closeModal(): void {
-    this.isShowModal$.next(false);
+
+  public logout(): void {
+    this.modalWindowService.closeModal();
+    this.authService.userName = '';
+    this.appComponent.status = !this.appComponent.status
+    localStorage.clear();
+    this.router.navigate([''])
   }
 }
