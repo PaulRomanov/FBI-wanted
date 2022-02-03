@@ -10,9 +10,7 @@ import { ModalWindowLoginFormModule } from './components/modal-window-login-form
 import { HeaderModule } from './components/header/header.module';
 import { MainPageModule } from './pages/main-page/main-page.module';
 import { SidebarModule } from './components/sidebar/sidebar.module';
-
-
-
+import { ContentPageModule } from './pages/content-page/content-page.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -23,8 +21,10 @@ import { SidebarModule } from './components/sidebar/sidebar.module';
     ModalWindowLoginFormModule,
     HeaderModule,
     MainPageModule,
+    ContentPageModule,
     SidebarModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   bootstrap: [AppComponent],
 

@@ -6,7 +6,6 @@ import { ModalWindowLoginFormModule } from '../modal-window-login-form/modal-win
 import { AuthService } from 'src/app/services/auth.service';
 
 import { HeaderComponent } from './header.component';
-import { BtnChangeTitleService } from 'src/app/services/btnChangeTitle.service';
 
 
 @NgModule({

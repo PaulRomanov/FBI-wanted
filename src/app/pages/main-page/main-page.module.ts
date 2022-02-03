@@ -13,7 +13,7 @@ import { ModalWindowLoginFormModule } from 'src/app/components/modal-window-logi
     CommonModule,
     SidebarModule,
     RouterModule,
-    ModalWindowLoginFormModule
+    ModalWindowLoginFormModule,
   ],
   declarations: [MainPageComponent],
   exports: [MainPageComponent],
