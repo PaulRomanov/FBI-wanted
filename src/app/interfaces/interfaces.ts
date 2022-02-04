@@ -4,7 +4,7 @@ export interface User {
   role?: string
 }
 
-export interface Response {
+export interface ResponseLogin {
   users: User[]
 }
 

@@ -7,7 +7,7 @@ import { ModalWindowService } from './services/modal-window.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'FBI-wanted';
+  public title = 'FBI-wanted';
   public status: boolean = true;
   public isShowModal$ = this.modalWindowService.isShowModal$;
 
