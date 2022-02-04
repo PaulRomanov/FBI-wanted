@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http"
-import { User, Response } from './../interfaces/interfaces';
+import { User, ResponseLogin } from './../interfaces/interfaces';
 import { map, Observable, pipe } from "rxjs";
 
 @Injectable({ providedIn: 'root' })
@@ -10,15 +10,17 @@ export class AuthService {
 
   public userName: string | null = '';
   public isAuthLogin: boolean = false;
+
+  public login(email: string, password: string): Observable<ResponseLogin> {
+
   public userObj = {
     email: '',
     password: ''
   }
-  public login(email: User, password: User): Observable<Response> {
 
     const requestURL = '../../assets/users/users.json';
 
-    return this.http.get<Response>(requestURL).pipe(
+    return this.http.get<ResponseLogin>(requestURL).pipe(
 
       map((data: any) => {
         const usersList = data["users"];

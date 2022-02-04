@@ -19,6 +19,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     ModalWindowLoginFormModule,
     SpinnerModule,
     MatProgressSpinnerModule
+
   ],
   declarations: [MainPageComponent],
   exports: [MainPageComponent],
