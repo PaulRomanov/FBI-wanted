@@ -1,0 +1,13 @@
+<div class="response-wrapper">
+
+<img src="{{ item.images[0].thumb }}" alt="foto" />
+<div><span class="title-name">name:</span> {{ item.aliases }}</div>
+<div><span class="title-name">sex: </span> {{ item.sex }}</div>
+<div><span class="title-name">date of birth: </span>{{ item.dates_of_birth_used }}</div>
+<div><span class="title-name">weight max: </span> {{ item.weight_max }}</div>
+
+<div class="additional-content" *ngIf="isViewMore">
+  <div><span class="title-name">description: </span>{{ item.description }}</div>
+</div>
+<button (click)="viewMore()">view more</button>
+</div>

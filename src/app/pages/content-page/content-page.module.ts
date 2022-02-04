@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FbiWantedAPIService } from 'src/app/services/fbiWantedAPI.service';
+import { CriminalCardModule } from 'src/app/components/criminal-card/criminal-card.module';
 @NgModule({
   imports: [
     CommonModule,
@@ -13,6 +14,7 @@ import { FbiWantedAPIService } from 'src/app/services/fbiWantedAPI.service';
     SidebarModule,
     RouterModule,
     HttpClientModule,
+    CriminalCardModule,
 
   ],
   declarations: [ContentPageComponent],

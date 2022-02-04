@@ -13,25 +13,14 @@ export class ContentPageComponent implements OnInit, OnDestroy {
   public aSub: Subscription = new Subscription;
   public unsubscribe: Subject<void> = new Subject();
   public response: any;
-  public isViewMore: boolean = false;
-
 
 
   constructor(
-
     public fbiWantedAPIService: FbiWantedAPIService,
   ) { }
 
   ngOnInit(): void {
     this.searchFBIWanted();
-  }
-
-  public viewMore(): void {
-    this.isViewMore = !this.isViewMore ;
-    console.log(this.isViewMore );
-
-    console.log('click');
-
   }
 
   public searchFBIWanted() {
