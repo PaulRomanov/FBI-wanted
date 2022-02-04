@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ModalWindowService } from 'src/app/services/modal-window.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { AppComponent } from 'src/app/app.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class HeaderComponent {
   constructor(
     public modalWindowService: ModalWindowService,
     public authService: AuthService,
-    public appComponent: AppComponent
+    public appComponent: AppComponent,
+    private router: Router
   ) { }
 
   public login(): void {
@@ -27,6 +29,8 @@ export class HeaderComponent {
   public logout(): void {
     this.modalWindowService.closeModal();
     this.authService.userName = '';
-    this.appComponent.status = !this.appComponent.status
+    this.appComponent.isStatus = !this.appComponent.isStatus
+    localStorage.clear();
+    this.router.navigate([''])
   }
 }

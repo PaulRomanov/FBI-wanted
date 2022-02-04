@@ -10,12 +10,13 @@ export class AuthService {
 
   public userName: string | null = '';
   public isAuthLogin: boolean = false;
+
   public login(email: string, password: string): Observable<ResponseLogin> {
 
-    const userObj = {
-      email: '',
-      password: ''
-    }
+  public userObj = {
+    email: '',
+    password: ''
+  }
 
     const requestURL = '../../assets/users/users.json';
 
@@ -27,17 +28,16 @@ export class AuthService {
         usersList.find(
           ((usersElement: any) => {
             if (usersElement.email === email && usersElement.password === password) {
-              userObj.email = usersElement.email
-              userObj.password = usersElement.password
+              this.userObj.email = usersElement.email
+              this.userObj.password = usersElement.password
 
               localStorage.setItem('email', usersElement.email);
               localStorage.setItem('role', usersElement.role)
 
-              this.userName = localStorage.getItem('role');
               this.isAuthLogin = true;
-
+              this.userName = localStorage.getItem('role');
             }
-            return userObj;
+            return this.userObj;
           })
         )
 

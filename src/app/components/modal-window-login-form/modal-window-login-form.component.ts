@@ -52,7 +52,7 @@ export class ModalWindowLoginFormComponent implements OnInit, OnDestroy {
       () => {
         this.router.navigate([''])
         this.modalWindowService.closeModal()
-        this.appComponent.status = !this.appComponent.status;
+        this.appComponent.isStatus = !this.appComponent.isStatus;
 
       },
 

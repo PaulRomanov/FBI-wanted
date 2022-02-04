@@ -7,6 +7,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FbiWantedAPIService } from 'src/app/services/fbiWantedAPI.service';
 import { CriminalCardModule } from 'src/app/components/criminal-card/criminal-card.module';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  {path: '', component: ContentPageComponent}
+]
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +21,7 @@ import { CriminalCardModule } from 'src/app/components/criminal-card/criminal-ca
     RouterModule,
     HttpClientModule,
     CriminalCardModule,
+    RouterModule.forChild(routes)
 
   ],
   declarations: [ContentPageComponent],
