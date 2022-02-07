@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http"
-import { ResponseApi } from '../interfaces/interfaces';
+import { CriminalsRespons } from '../interfaces/interfaces';
+import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class FbiWantedAPIService {
@@ -11,14 +12,17 @@ export class FbiWantedAPIService {
     private httpClient: HttpClient
   ) { }
 
-  public searchFBIWanted() {
+  public searchFBIWanted(page: number): Observable<CriminalsRespons> {
 
     const requestURL = 'https://api.fbi.gov/wanted/v1/list';
 
-    return this.httpClient.get<ResponseApi>(requestURL)
+    return this.httpClient.get<CriminalsRespons>(requestURL, {
+      params: {
+        page,
+      },
+    });
 
   }
-
 }
 
 

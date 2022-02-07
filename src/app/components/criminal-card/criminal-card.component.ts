@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class CriminalCardComponent {
 
-  @Input() item: any;
+  @Input() criminal: any;
 
   public isViewMore: boolean = false;
 
