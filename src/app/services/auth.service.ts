@@ -10,13 +10,14 @@ export class AuthService {
 
   public userName: string | null = '';
   public isAuthLogin: boolean = false;
-
-  public login(email: string, password: string): Observable<ResponseLogin> {
-
   public userObj = {
     email: '',
     password: ''
   }
+
+  public login(email: string, password: string): Observable<ResponseLogin> {
+
+
 
     const requestURL = '../../assets/users/users.json';
 
