@@ -11,7 +11,7 @@ import { AppComponent } from './../../app.component';
 
 
 @Component({
-  selector: 'app-modal-window-login-form',
+  selector: 'fw-modal-window-login-form',
   templateUrl: './modal-window-login-form.component.html',
   styleUrls: ['./modal-window-login-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

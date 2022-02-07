@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ModalWindowService } from './services/modal-window.service';
 
 @Component({
-  selector: 'app-root',
+  selector: 'fw-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

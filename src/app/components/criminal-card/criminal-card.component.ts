@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-criminal-card',
+  selector: 'fw-criminal-card',
   templateUrl: './criminal-card.component.html',
   styleUrls: ['./criminal-card.component.scss']
 })
