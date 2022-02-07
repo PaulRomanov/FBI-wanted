@@ -5,7 +5,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { AppComponent } from './../../app.component';
 
 @Component({
-  selector: 'app-main-page',
+  selector: 'fw-main-page',
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

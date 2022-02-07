@@ -5,13 +5,13 @@ import { Subscription } from 'rxjs';
 
 import { AuthService } from 'src/app/services/auth.service';
 import { ModalWindowService } from 'src/app/services/modal-window.service';
-import { BtnChangeTitleService } from './../../services/btnChangeTitle.service';
+import { BtnChangeTitleService } from '../../services/btn-change-title.service';
 import { User } from './../../interfaces/interfaces';
 import { AppComponent } from './../../app.component';
 
 
 @Component({
-  selector: 'app-modal-window-login-form',
+  selector: 'fw-modal-window-login-form',
   templateUrl: './modal-window-login-form.component.html',
   styleUrls: ['./modal-window-login-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
