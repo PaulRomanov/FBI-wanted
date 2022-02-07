@@ -8,7 +8,7 @@ export interface ResponseLogin {
   users: User[]
 }
 
-export interface ResponseApi {
+export interface Criminal {
   id: string
   additional_information: null
   age_max: null
@@ -62,4 +62,11 @@ export interface ResponseApi {
   weight: string
   weight_max: number
   weight_min: number
+}
+
+
+export interface CriminalsRespons {
+  total: number;
+  page: number;
+  items: Criminal[];
 }
