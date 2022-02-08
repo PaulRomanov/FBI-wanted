@@ -19,7 +19,6 @@ import { AppComponent } from './../../app.component';
 export class ModalWindowLoginFormComponent implements OnInit, OnDestroy {
 
   public form!: FormGroup;
-  public submited: boolean = false;
   public aSub: Subscription = new Subscription;
 
   constructor(
@@ -50,10 +49,11 @@ export class ModalWindowLoginFormComponent implements OnInit, OnDestroy {
 
     this.aSub = this.authService.login(this.form.value.email, this.form.value.password).subscribe(
       () => {
+        console.log(typeof(this.aSub));
+
         this.router.navigate([''])
         this.modalWindowService.closeModal()
         this.appComponent.isStatus = !this.appComponent.isStatus;
-
       },
 
       error => {

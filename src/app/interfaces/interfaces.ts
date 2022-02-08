@@ -10,8 +10,8 @@ export interface ResponseLogin {
 
 export interface Criminal {
   id: string
-  additional_information: null
-  age_max: null
+  additional_information: string
+  age_max: number
   age_min: null
   age_range: null
   aliases: []
@@ -30,7 +30,12 @@ export interface Criminal {
   hair_raw: string
   height_max: number
   height_min: number
-  images: []
+  images: [{
+    caption: null
+    large: string
+    original: string
+    thumb: string
+  }]
   languages: null
   legat_names: null
   locations: null

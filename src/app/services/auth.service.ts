@@ -25,8 +25,7 @@ export class AuthService {
 
       map((data: any) => {
         const usersList = data["users"];
-
-        usersList.find(
+        const user = usersList.find(
           ((usersElement: any) => {
             if (usersElement.email === email && usersElement.password === password) {
               this.userObj.email = usersElement.email
@@ -42,7 +41,7 @@ export class AuthService {
           })
         )
 
-        return usersList;
+        return user;
       })
     );
 
