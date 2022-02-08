@@ -14,8 +14,6 @@ import { Criminal } from 'src/app/interfaces/interfaces';
 })
 export class ContentPageComponent implements OnInit {
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-
   public response: any;
   public criminals$!: Observable<Criminal[]>;
   public total!: number;

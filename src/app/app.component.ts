@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ModalWindowService } from './services/modal-window.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { ModalWindowService } from './services/modal-window.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   public title = 'FBI-wanted';
   public isStatus: boolean = true;
@@ -15,6 +15,10 @@ export class AppComponent {
 
   constructor(public modalWindowService: ModalWindowService) {
 
+
+  }
+
+  ngOnInit(): void {
     this.showSpinner()
   }
 

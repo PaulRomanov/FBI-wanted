@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Criminal } from 'src/app/interfaces/interfaces';
 
 @Component({
   selector: 'fw-criminal-card',
@@ -7,7 +8,7 @@ import { Component, Input } from '@angular/core';
 })
 export class CriminalCardComponent {
 
-  @Input() criminal: any;
+  @Input()  criminal!: Criminal;
 
   public isViewMore: boolean = false;
 
@@ -15,7 +16,6 @@ export class CriminalCardComponent {
 
   public viewMore(): void {
     this.isViewMore = !this.isViewMore;
-    console.log(this.isViewMore);
   }
 
 }
