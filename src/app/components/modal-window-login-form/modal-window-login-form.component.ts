@@ -49,8 +49,6 @@ export class ModalWindowLoginFormComponent implements OnInit, OnDestroy {
 
     this.aSub = this.authService.login(this.form.value.email, this.form.value.password).subscribe(
       () => {
-        console.log(typeof(this.aSub));
-
         this.router.navigate([''])
         this.modalWindowService.closeModal()
         this.appComponent.isStatus = !this.appComponent.isStatus;

@@ -75,3 +75,7 @@ export interface CriminalsRespons {
   page: number;
   items: Criminal[];
 }
+
+export interface Action {
+  type: string;
+}
