@@ -38,12 +38,13 @@ export class ContentPageComponent implements OnInit {
     this.criminasFacade.loadCrim()
 
 
-      this.store.select(data => data.criminals).subscribe((res) => {
+    this.store.select(data => data.criminals).subscribe((res) => {
 
 
-    // console.log(this.store.select(selectCriminal));
+      // console.log(this.store.select(selectCriminal));
 
-
+    }
+    )
   }
 
   public OnPageChange(event: PageEvent) {
