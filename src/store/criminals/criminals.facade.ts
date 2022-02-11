@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Store } from "@ngrx/store";
-import { loadCriminal } from "./criminals.action";
+import { loadCriminal, loadCriminalSuccess } from "./criminals.action";
 import { CriminalState } from './criminals.state';
 import { selectCriminal } from './criminals.selectors';
 
@@ -11,7 +11,8 @@ export class CriminalFacade {
   constructor(private store: Store<CriminalState>) { }
 
   public loadCrim(): void {
-    this.store.dispatch(loadCriminal())
+    this.store.dispatch(loadCriminal({page: 1}))
   }
 
 }
+//что нужно диспатчить в фасаде? поидеи loadCriminalSuccess
