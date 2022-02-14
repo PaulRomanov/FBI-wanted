@@ -1,7 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http"
-import { User, ResponseLogin } from './../interfaces/interfaces';
-import { map, Observable, pipe } from "rxjs";
+import { map, Observable } from "rxjs";
+
+import { ResponseLogin } from './../interfaces/interfaces';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -16,8 +17,6 @@ export class AuthService {
   }
 
   public login(email: string, password: string): Observable<ResponseLogin> {
-
-
 
     const requestURL = '../../assets/users/users.json';
 

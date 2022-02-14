@@ -1,10 +1,9 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { FbiWantedAPIService } from 'src/app/services/fbi-wanted-API.service';
-import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { map } from 'rxjs/operators';
+import { PageEvent } from '@angular/material/paginator';
 
 import { Criminal } from 'src/app/interfaces/interfaces';
+import { CriminalFacade } from 'src/store/criminals/criminals.facade';
 
 @Component({
   selector: 'fw-content-page',
@@ -16,33 +15,25 @@ export class ContentPageComponent implements OnInit {
 
   public response: any;
   public criminals$!: Observable<Criminal[]>;
-  public total!: number;
+  public total: number = 949;
   public page: number = 0;
 
+
   constructor(
-    public fbiWantedAPIService: FbiWantedAPIService,
+    private criminalsFacade: CriminalFacade,
   ) { }
 
 
   ngOnInit(): void {
-    this.searchFBIWanted();
+    this.criminals$ = this.criminalsFacade.criminals$
+    this.criminalsFacade.loadCrim(this.page + 1 );
   }
 
   public OnPageChange(event: PageEvent) {
     this.page = event.pageIndex
-    this.searchFBIWanted();
-  }
+    this.criminalsFacade.loadCrim(this.page + 1 );
+    console.log(this.page);
 
-  public searchFBIWanted() {
-    this.criminals$ = this.fbiWantedAPIService.searchFBIWanted(this.page + 1).pipe(
-      map((criminalsRespons) => {
-        this.total = criminalsRespons.total;
-
-        return criminalsRespons.items;
-      })
-    )
   }
 
 }
-
-

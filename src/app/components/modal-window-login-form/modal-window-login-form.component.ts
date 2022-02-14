@@ -5,7 +5,6 @@ import { Subscription } from 'rxjs';
 
 import { AuthService } from 'src/app/services/auth.service';
 import { ModalWindowService } from 'src/app/services/modal-window.service';
-import { BtnChangeTitleService } from '../../services/btn-change-title.service';
 import { User } from './../../interfaces/interfaces';
 import { AppComponent } from './../../app.component';
 
@@ -26,7 +25,6 @@ export class ModalWindowLoginFormComponent implements OnInit, OnDestroy {
     public router: Router,
     public route: ActivatedRoute,
     public modalWindowService: ModalWindowService,
-    public btnChangeTitleService: BtnChangeTitleService,
     public appComponent: AppComponent
 
   ) { }
@@ -49,8 +47,6 @@ export class ModalWindowLoginFormComponent implements OnInit, OnDestroy {
 
     this.aSub = this.authService.login(this.form.value.email, this.form.value.password).subscribe(
       () => {
-        console.log(typeof(this.aSub));
-
         this.router.navigate([''])
         this.modalWindowService.closeModal()
         this.appComponent.isStatus = !this.appComponent.isStatus;

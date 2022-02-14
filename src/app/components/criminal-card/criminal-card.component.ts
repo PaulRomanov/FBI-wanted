@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
+
 import { Criminal } from 'src/app/interfaces/interfaces';
+
 
 @Component({
   selector: 'fw-criminal-card',
@@ -8,11 +10,11 @@ import { Criminal } from 'src/app/interfaces/interfaces';
 })
 export class CriminalCardComponent {
 
-  @Input()  criminal!: Criminal;
+  @Input() criminal!: Criminal;
 
   public isViewMore: boolean = false;
 
-  constructor() {}
+  constructor() { }
 
   public viewMore(): void {
     this.isViewMore = !this.isViewMore;
