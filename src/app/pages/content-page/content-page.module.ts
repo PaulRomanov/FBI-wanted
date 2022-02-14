@@ -7,7 +7,7 @@ import { FbiWantedAPIService } from 'src/app/services/fbi-wanted-API.service';
 import { CriminalCardModule } from 'src/app/components/criminal-card/criminal-card.module';
 import { RouterModule, Routes } from '@angular/router';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import {MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
 
 const routes: Routes = [
   { path: '', component: ContentPageComponent }

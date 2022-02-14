@@ -17,7 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
 import { CriminalEffects } from 'src/store/criminals/criminals.effects';
 import { StoreModule } from '@ngrx/store';
-import { criminalReducer } from 'src/store/criminals/criminals.reducer';
+import { appReducers } from 'src/store';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import { criminalReducer } from 'src/store/criminals/criminals.reducer';
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
     EffectsModule.forRoot([CriminalEffects]),
-    StoreModule.forRoot(criminalReducer)
+    StoreModule.forRoot(appReducers)
 
   ],
   bootstrap: [AppComponent],

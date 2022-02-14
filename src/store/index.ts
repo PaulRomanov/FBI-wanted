@@ -1,11 +1,11 @@
 import { CriminalState } from './criminals/criminals.state';
 import { criminalReducer } from './criminals/criminals.reducer';
+import { ActionReducerMap } from '@ngrx/store';
 
 export interface AppState {
   criminals: CriminalState;
 }
 
-//нужно типизировать appReducers: ...<AppState>
-export const appReducers = {
+export const appReducers: ActionReducerMap<AppState> = {
   criminals: criminalReducer
 }

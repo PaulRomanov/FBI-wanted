@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { createAction, props } from '@ngrx/store';
-import { Criminal, CriminalsRespons } from 'src/app/interfaces/interfaces';
+import { CriminalsRespons } from 'src/app/interfaces/interfaces';
 
 
 export enum CRIMINAL_ACTION {
