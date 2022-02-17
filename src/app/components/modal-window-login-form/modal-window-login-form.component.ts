@@ -5,13 +5,12 @@ import { Subscription } from 'rxjs';
 
 import { AuthService } from 'src/app/services/auth.service';
 import { ModalWindowService } from 'src/app/services/modal-window.service';
-import { BtnChangeTitleService } from './../../services/btnChangeTitle.service';
 import { User } from './../../interfaces/interfaces';
 import { AppComponent } from './../../app.component';
 
 
 @Component({
-  selector: 'app-modal-window-login-form',
+  selector: 'fw-modal-window-login-form',
   templateUrl: './modal-window-login-form.component.html',
   styleUrls: ['./modal-window-login-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -19,7 +18,6 @@ import { AppComponent } from './../../app.component';
 export class ModalWindowLoginFormComponent implements OnInit, OnDestroy {
 
   public form!: FormGroup;
-  public submited: boolean = false;
   public aSub: Subscription = new Subscription;
 
   constructor(
@@ -27,7 +25,6 @@ export class ModalWindowLoginFormComponent implements OnInit, OnDestroy {
     public router: Router,
     public route: ActivatedRoute,
     public modalWindowService: ModalWindowService,
-    public btnChangeTitleService: BtnChangeTitleService,
     public appComponent: AppComponent
 
   ) { }
@@ -53,7 +50,6 @@ export class ModalWindowLoginFormComponent implements OnInit, OnDestroy {
         this.router.navigate([''])
         this.modalWindowService.closeModal()
         this.appComponent.isStatus = !this.appComponent.isStatus;
-
       },
 
       error => {

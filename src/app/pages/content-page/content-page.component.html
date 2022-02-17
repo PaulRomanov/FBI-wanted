@@ -1,4 +1,14 @@
+<div class="wrapper-content-page">
+  <fw-criminal-card
+    *ngFor="let criminal of criminals$ | async"
+    [criminal]="criminal"
+  ></fw-criminal-card>
 
-  <p> content-page works!</p>
-
-
+  <mat-paginator
+    [length]="total"
+    [pageSize]="20"
+    aria-label="Select page"
+    (page)="OnPageChange($event)"
+  >
+  </mat-paginator>
+</div>
