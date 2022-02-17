@@ -16,7 +16,7 @@ export class ContentPageComponent implements OnInit {
   public response: any;
   public criminals$!: Observable<Criminal[]>;
   public total: number = 949;
-  public page: number = 0;
+  public page: number = 1;
 
 
   constructor(
@@ -26,14 +26,12 @@ export class ContentPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.criminals$ = this.criminalsFacade.criminals$
-    this.criminalsFacade.loadCrim(this.page + 1 );
+    this.criminalsFacade.loadCrim(this.page);
   }
 
   public OnPageChange(event: PageEvent) {
-    this.page = event.pageIndex
-    this.criminalsFacade.loadCrim(this.page + 1 );
-    console.log(this.page);
-
+    this.page = event.pageIndex +1
+    this.criminalsFacade.loadCrim(this.page);
   }
 
 }
